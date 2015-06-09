@@ -13,12 +13,15 @@
 
 	    <div class="col-xs-12 col-sm-6">
 	      <blockquote>
-	        <% if place.comments.last.humanized_rating.present? %>
+	        <% if place.comments.present? && place.comments.last.humanized_rating.present? %>
 	          <b><%= place.comments.last.humanized_rating %> </b>-
 	          <%end%>
+						<% if place.comments.present?%>
 	          <%= place.comments.last.message %>
+						<% end %>
 	        <small><%= place.comments.user.email %></small>
+					<% end %>
 	      </blockquote>
 	    </div>
-		<%end%>
+
 	<%= will_paginate @place %>
