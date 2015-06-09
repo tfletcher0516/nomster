@@ -11,17 +11,20 @@
 	<hr />
 
 
-	    <div class="col-xs-12 col-sm-6">
-	      <blockquote>
-	        <% if place.comments.present? && place.comments.last.humanized_rating.present? %>
-	          <b><%= place.comments.last.humanized_rating %> </b>-
-	          <%end%>
-						<% if place.comments.present?%>
-	          <%= place.comments.last.message %>
-						<% end %>
-						<small><%= place.comments.last.user.email %></small>
-					<% end %>
-	      </blockquote>
-	    </div>
+	<div class="col-xs-12 col-sm-6 col-xs-offset-1">
+				<blockquote>
+		<% if place.comments.present? && place.comments.last.humanized_rating.present? %>
+			<b><%= place.comments.last.humanized_rating %> </b>-
+		<% end %>
+
+		<% if place.comments.present?%>
+			<%= place.comments.last.message %>
+			<% if place.comments.last.user.present? %>
+				<small><%= place.comments.last.user.email %></small>
+			<% end %>
+		<% end %>
+	</blockquote>
+</div>
+<% end %>
 
 	<%= will_paginate @place %>
