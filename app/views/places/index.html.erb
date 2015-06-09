@@ -19,7 +19,7 @@
 						<% if place.comments.present?%>
 	          <%= place.comments.last.message %>
 						<% end %>
-	        <small><%= place.comments.user.email %></small>
+						<small><%= place.comments.last.user.email %></small>
 					<% end %>
 	      </blockquote>
 	    </div>
