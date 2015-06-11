@@ -10,7 +10,7 @@ before_action :authenticate_user!
     private
 
 
-  def comments_params
+  def photos_params
     params.require(:photo).permit(:caption)
   end
 end
