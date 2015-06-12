@@ -124,7 +124,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   <% @place.photos.each do |photo| %>
     <div class="col-xs-10 col-offset-1 booyah-box">
-  <%= image_tag photo.picture %>
+  <%= image_tag photo.picture, :class => 'img-responsive' %>
   <%= photo.caption %>
   </div>
   <%end%>

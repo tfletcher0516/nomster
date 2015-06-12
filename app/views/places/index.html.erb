@@ -21,10 +21,14 @@
 			<%= place.comments.last.message %>
 			<% if place.comments.last.user.present? %>
 				<small><%= place.comments.last.user.email %></small>
-			<% end %>
+			<% end %>	
 		<% end %>
 	</blockquote>
+	</div>
+	<div class="clear">
+	<% if place.photos.last.present? && place.photos.last.picture.present?  %>
+		<%= image_tag place.photos.last.picture, :class =>" col-xs-offset-1 img_responsive" %>
+	  <%end%>
+  <%end%>
 </div>
-<% end %>
-
 	<%= will_paginate @place %>
