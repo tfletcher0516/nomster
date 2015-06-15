@@ -12,8 +12,9 @@
 
 
 	<div class="col-xs-12 col-sm-6 col-xs-offset-1">
-				<blockquote>
+		
 		<% if place.comments.present? && place.comments.last.humanized_rating.present? %>
+			<blockquote>
 			<b><%= place.comments.last.humanized_rating %> </b>-
 		<% end %>
 
