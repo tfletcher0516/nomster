@@ -12,18 +12,60 @@
   </div>
   <div class="clear"></div>
 </div>
+
 <br /><br />
+
 <h1 class="text-center"> My Comments</h1>
 <br/><br />
+
 <% @user.comments.each do |comment| %>
-<div class="col-xs-12 col-sm-6">
-	<h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %> </h2>
-  <blockquote>
-    <% if comment.humanized_rating.present? %>
-      <b><%= comment.humanized_rating %></b> -
-    <% end %>
-    <%= comment.message %>
-    <small><%= comment.user.email %></small>
-  </blockquote>
-</div>
-<%end%>
+	<div class="col-xs-12 col-sm-6">
+		<h2 class="text-center"><%= link_to comment.place.name, place_path(comment.place) %> </h2>
+	  <blockquote>
+	    <% if comment.humanized_rating.present? %>
+	      <b><%= comment.humanized_rating %></b> -
+	    <% end %>
+	    <%= comment.message %>
+	    <small><%= comment.user.email %></small>
+	  </blockquote>
+	</div>
+	<%end%>
+
+	<div class="clear"></div>
+	<br /><br />
+	<h2 class="text-center"> My Places </h2>
+	<br /><br />
+		<% @user.places.each do |place| %>
+			<div class="booyah-box col-xs-10 col-xs-offset-1">
+			<h1><%= link_to place.name, place_path(place) %></h1><br />
+		<i><%= place.address %></i><br /><br />
+		<p><%= place.description %></p><br />
+
+			<% if place.user.present? %>
+				<small><%= place.user.email %></small>
+			<% end %>
+		</div>
+		<hr />
+
+
+		<div class="col-xs-12 col-sm-6 col-xs-offset-1">
+			
+			<% if place.comments.present? && place.comments.last.humanized_rating.present? %>
+				<blockquote>
+				<b><%= place.comments.last.humanized_rating %> </b>-
+			<% end %>
+
+			<% if place.comments.present?%>
+				<%= place.comments.last.message %>
+				<% if place.comments.last.user.present? %>
+					<small><%= place.comments.last.user.email %></small>
+				<% end %>	
+			<% end %>
+		</blockquote>
+		</div>
+		<div class="clear">
+		<% if place.photos.last.present? && place.photos.last.picture.present?  %>
+			<%= image_tag place.photos.last.picture, :class =>" col-xs-offset-1 img_responsive" %>
+		<%end%>
+	<%end%>
+
