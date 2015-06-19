@@ -26,6 +26,7 @@ body {
 	border-radius: 0;
 	box-shadow: 5px 10px 3px #2a2a2a;
 	margin-bottom:0;
+	position: abosolute;	
 }
 
 .navbar-inverse .navbar-brand {
@@ -76,6 +77,7 @@ blockquote p {
 
 .carousel {
 	box-shadow: 0px 3px 8px #2a2a2a;
+	top: 0;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
@@ -92,9 +94,5 @@ blockquote p {
 	width: 100%;
 	position: absolute;
 	left:0;
-}
-
-a {
-	display:block;	
 }
 
